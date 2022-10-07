@@ -1,0 +1,17 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Ecommerce{% endblock title %}
+
+
+{% block main-content %}
+
+<h1>Order Placed Thank-you</h1>
+<h2>Buy for $5.00</h2>
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="{{ key }}"
+    data-description="A Django Charge"
+    data-amount="500"
+    data-locale="auto">
+</script>
+
+{% endblock main-content %}

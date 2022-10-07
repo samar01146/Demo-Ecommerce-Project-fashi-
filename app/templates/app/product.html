@@ -1,0 +1,88 @@
+{% extends 'app/base.html' %}
+{% block title %}Ecommerce{% endblock title %}
+{% load static %}
+
+{% block main-content %}
+
+
+<!-- Breadcrumb Section Begin -->
+<div class="breacrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text product-more">
+                    <a href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a>
+                    <a href="{% url 'shop' %}">Shop</a>
+                    <span>Product Detail's</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Breadcrumb Section Begin -->
+
+<!-- Product Shop Section Begin -->
+<section class="product-shop spad page-details">
+    <div class="container">
+        <div class="row">
+        </div>
+        <div class="col-lg-9">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="product-pic-zoom">
+                        <img class="product-big-img" src="{{product.product_images.url}}" alt="">
+                        <div class="zoom-icon">
+                            <i class="fa fa-search-plus"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+                    <div class="product-details">
+                        <div class="pd-title">
+                            <span>oranges</span>
+                            <h3>Pure Pineapple</h3>
+                            <a href="#" class="heart-icon"><i class="icon_heart_alt"></i></a>
+                        </div>
+                        <div class="pd-rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                            <span>(5)</span>
+                        </div>
+                        <div class="pd-desc">
+                            <p>Lorem ipsum dolor sit amet, consectetur ing elit, sed do eiusmod tempor sum dolor
+                                sit amet, consectetur adipisicing elit, sed do mod tempor</p>
+                            <h4>$495.00 <span>629.99</span></h4>
+                        </div>
+
+                        <div class="quantity">
+                            <div class="pro-qty">
+                                <input type="text" value="1">
+                            </div>
+                            <a href="{% url 'cart' %}" class="primary-btn pd-cart">Add To Cart</a>
+                        </div>
+                        <ul class="pd-tags">
+                            <li><span>DESCRIPTION</span>: {{product.description}}</li>
+                            <li><span>TAGS</span>: {{product.title}}</li>
+                        </ul>
+                        <div class="pd-share">
+                            <div class="p-code"></div>
+                            <div class="pd-social">
+                                <a href="#"><i class="ti-facebook"></i></a>
+                                <a href="#"><i class="ti-twitter-alt"></i></a>
+                                <a href="#"><i class="ti-linkedin"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+<!-- Product Shop Section End -->
+
+
+
+{% endblock main-content %}

@@ -1,0 +1,29 @@
+{% extends 'app/base.html' %}
+{% block title %}Ecommerce{% endblock title %}
+{% load static %}
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>
+        <div class="col-sm-8 offset-sm-1">
+            <form action="" method="post">
+                {% csrf_token %}
+                {% if messages %}
+                {% for message in messages %}
+                <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}> {{message}}</p>
+                {% endfor %}
+                {% endif %}
+                {% for fm in form %}
+                <div class="form-group col-lg-6 mb-3">
+                    {{fm.label_tag}} {{fm}} <small class="text-danger"> {{fm.errors|striptags}}</small><br>
+                </div>
+                {% endfor %}
+                <div class col-12 mt-3></div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </form>
+
+    </div>
+</div>
+</div>
+{% endblock main-content %}

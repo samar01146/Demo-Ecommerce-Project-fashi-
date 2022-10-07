@@ -1,0 +1,58 @@
+{% extends 'app/base.html' %}
+{% block title %}Ecommerce{% endblock title %}
+{% load static %}
+
+{% block main-content %}
+<!-- Women Banner Section Begin -->
+<<!-- Women Banner Section Begin -->
+<section class="women-banner spad">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="product-large set-bg" data-setbg="{% static 'app/img/products/women-large.jpg' %}">
+                    <h2>Women’s</h2>
+                    <a href="#">Discover More</a>
+                </div>
+            </div>
+            <div class="col-lg-8 offset-lg-1">
+                <div class="filter-control">
+                    <ul>
+                        <li class="active">Clothings</li>
+          
+
+                    </ul>
+                </div>
+                <div class="product-slider owl-carousel">
+                    {% for product in women %}
+                    <div class="product-item">
+                        <div class="pi-pic">
+                            <img src="{{product.product_images.url}}" alt="">
+                            <div class="sale">Sale</div>
+                            <div class="icon">
+                                <i class="icon_heart_alt"></i>
+                            </div>
+                            <ul>
+                                <li class="w-icon active"><a href="{% url 'cart' %}"><i class="icon_bag_alt"></i></a>
+                                </li>
+                                <li class="quick-view"><a href="{% url 'product' product.id %}">+ Quick View</a></li>
+                            </ul>
+                        </div>
+                        <div class="pi-text">
+                            <div class="catagory-name">{{product.title}}</div>
+                            <a href="#">
+                                <h5>{{product.title}}</h5>
+                            </a>
+                            <div class="product-price">
+                                <span>{{product.discounted_price}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Women Banner Section End -->
+<!-- Women Banner Section End -->
+{% endblock main-content %}

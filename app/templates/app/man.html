@@ -1,0 +1,56 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Ecommerce{% endblock title %}
+
+{% block main-content %}
+<!-- Man Banner Section Begin -->
+<section class="man-banner spad">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="col-lg-8">
+                <div class="filter-control">
+                    <ul>
+                        <li class="active">Clothings</li>
+                    
+                    </ul>
+                </div>
+                <div class="product-slider owl-carousel">
+                    {% for product in man %}
+                    <div class="product-item">
+                        <div class="pi-pic">
+                            <img src="{{product.product_images.url}}" alt="">
+                            <div class="icon">
+                                <i class="icon_heart_alt"></i>
+                            </div>
+                            <ul>
+                                <li class="w-icon active"><a href="{% url 'cart' %}"><i class="icon_bag_alt"></i></a>
+                                </li>
+                                <li class="quick-view"><a href="{% url 'product' product.id %}">+ Quick View</a></li>
+                            </ul>
+                        </div>
+                        <div class="pi-text">
+                            <div class="catagory-name">{{product.title}}</div>
+                            <a href="#">
+                                <h5>{{product.title}}</h5>
+                            </a>
+                            <div class="product-price">
+                                {{product.discounted_price}}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-lg-3 offset-lg-1">
+                <div class="product-large set-bg m-large" data-setbg="{% static 'app/img/products/man-large.jpg' %}">
+                    <h2>Men’s</h2>
+                </div>
+            </div>
+            <a href="#">Discover More</a>
+            
+        </div>
+    </div>
+</section>
+<!-- Man Banner Section End -->
+{% endblock main-content %}

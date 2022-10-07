@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Ecommerce{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="list-group">
+            </div>
+        </div>
+        <div class="col-sm-8 offset-sm-1">  
+            <div class="row">
+                {% for product in shoes %}
+                <div class="col-sm-5 text-center mb-4">
+                    <a href="{% url 'product' product.id %}" class="btn">
+                        <div class="item">
+                            <img src="{{product.product_images.url}}" alt="" height="300" class="">
+                            <div class="fw-bold"> {{product.title}}</div>
+                            <div class="fw-bold">Rs. {{product.discounted_price}}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+                <div class="filter-widget">
+                    <h4 class = 'text-center btn-dark'>Tags</h4>
+                    <div class="fw-tags">
+                        <a href="{% url 'shoes' %}">Shoes</a>
+                        <a href="{% url 'coat' %}">Coat</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock main-content %}
